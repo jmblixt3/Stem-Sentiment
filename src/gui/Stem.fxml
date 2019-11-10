@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.BasicFXMLController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <HBox layoutX="21.0" layoutY="200.0" prefHeight="187.0" prefWidth="598.0">
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="66.0" layoutY="56.0" snapToPixel="false" text="Sentiment" />
+                        <Label fx:id="sentiment" layoutX="89.0" layoutY="86.0" prefHeight="16.0" prefWidth="21.0" snapToPixel="false" text="0.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="emotionPane" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="60.0" layoutY="55.0" snapToPixel="false" text="Emotion" />
+                        <Label fx:id="emotion" alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="86.0" prefHeight="16.0" prefWidth="104.0" snapToPixel="false" style="-fx-alignment: Center;" textAlignment="CENTER" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="62.0" layoutY="57.0" snapToPixel="false" text="Confidence" />
+                        <Label fx:id="confidence" layoutX="89.0" layoutY="86.0" snapToPixel="false" text="0.0" />
+                     </children>
+                  </Pane>
+               </children></HBox>
+            <Pane layoutX="220.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="calculate" layoutX="60.0" layoutY="160.0" mnemonicParsing="false" onAction="#Calculate" text="Calculate" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="63.0" layoutY="64.0" text="Input Word" textAlignment="CENTER" />
+                  <TextField fx:id="inputWord" layoutX="14.0" layoutY="100.0" />
+               </children>
+            </Pane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
