@@ -9,8 +9,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 
-import org.python.util.PythonInterpreter;
-
 public class Sentiment {
 	private double sentiment;
 	private double confidence;
