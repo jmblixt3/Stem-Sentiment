@@ -20,7 +20,7 @@ public class BasicApplication extends Application {
     	//ResourceBundle resources = ResourceBundle.getBundle("gui");
     	FXMLLoader fxmlLoader = new FXMLLoader(location);
 
-    	BasicFXMLController controller = (BasicFXMLController)fxmlLoader.getController();
+    	//BasicFXMLController controller = (BasicFXMLController)fxmlLoader.getController();
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);

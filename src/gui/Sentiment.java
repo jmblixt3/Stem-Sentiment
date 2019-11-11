@@ -31,12 +31,6 @@ public class Sentiment {
 		
 	}
 
-	public static void Cancer() {
-		PythonInterpreter interp = new PythonInterpreter();
-		// interp.
-		interp.exec("import requests");
-		interp.execfile("python/api.py");
-	}
 
 	public String colors() {
 
