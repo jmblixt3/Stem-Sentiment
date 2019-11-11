@@ -16,8 +16,9 @@ public class BasicFXMLController {
 	private Button calculate;
 	@FXML
 	private TextField inputWord;
-	@FXML
-	private Label sentiment;
+	/*
+	 * @FXML private Label sentiment;
+	 */
 	@FXML
 	private Label emotion;
 	@FXML
@@ -41,9 +42,9 @@ public class BasicFXMLController {
 		words = new Sentiment(inputWord.getText());
 		
 		emotionPane.setStyle("-fx-border-color:black; -fx-background-color:"+ words.colors()+";");
-		sentiment.setText(""+words.getSentiment());
+		//sentiment.setText(""+words.getSentiment());
 		confidence.setText(""+words.getConfidence());
-		emotion.setText(words.emotion());
+		emotion.setText(words.getEmotion());
 		emotion.setTextAlignment(TextAlignment.CENTER);
 		
 		//System.out.println("Yeet");

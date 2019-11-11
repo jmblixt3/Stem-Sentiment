@@ -4,42 +4,53 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.BasicFXMLController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <HBox layoutX="21.0" layoutY="200.0" prefHeight="187.0" prefWidth="598.0">
+            <GridPane alignment="TOP_CENTER" prefHeight="400.0" prefWidth="640.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <Pane prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="emotionPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Label layoutX="66.0" layoutY="56.0" snapToPixel="false" text="Sentiment" />
-                        <Label fx:id="sentiment" layoutX="89.0" layoutY="86.0" prefHeight="16.0" prefWidth="21.0" snapToPixel="false" text="0.0" />
+                        <Label layoutX="82.0" layoutY="23.0" snapToPixel="false" style="-fx-alignment: CENTER;" text="Emotion" textAlignment="CENTER" />
+                        <Label fx:id="emotion" alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="56.0" prefHeight="16.0" prefWidth="104.0" snapToPixel="false" style="-fx-alignment: Center;" textAlignment="CENTER" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="73.0" layoutY="91.0" snapToPixel="false" style="-fx-alignment: CENTER;" text="Confidence" textAlignment="CENTER" />
+                        <Label fx:id="confidence" alignment="CENTER" contentDisplay="CENTER" layoutX="97.0" layoutY="133.0" snapToPixel="false" text="0.0" />
                      </children>
                   </Pane>
-                  <Pane fx:id="emotionPane" prefHeight="200.0" prefWidth="200.0">
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <Label layoutX="60.0" layoutY="55.0" snapToPixel="false" text="Emotion" />
-                        <Label fx:id="emotion" alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="86.0" prefHeight="16.0" prefWidth="104.0" snapToPixel="false" style="-fx-alignment: Center;" textAlignment="CENTER" />
+                        <Button fx:id="calculate" layoutX="31.0" layoutY="147.0" mnemonicParsing="false" onAction="#Calculate" prefHeight="32.0" prefWidth="152.0" text="Calculate" textAlignment="CENTER">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="59.0" style="-fx-alignment: CENTER;" text="Input Word" textAlignment="CENTER">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="inputWord" layoutX="31.0" layoutY="100.0" style="-fx-alignment: CENTER;" />
                      </children>
                   </Pane>
-                  <Pane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="62.0" layoutY="57.0" snapToPixel="false" text="Confidence" />
-                        <Label fx:id="confidence" layoutX="89.0" layoutY="86.0" snapToPixel="false" text="0.0" />
-                     </children>
-                  </Pane>
-               </children></HBox>
-            <Pane layoutX="220.0" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="calculate" layoutX="60.0" layoutY="160.0" mnemonicParsing="false" onAction="#Calculate" text="Calculate" />
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="63.0" layoutY="64.0" text="Input Word" textAlignment="CENTER" />
-                  <TextField fx:id="inputWord" layoutX="14.0" layoutY="100.0" />
                </children>
-            </Pane>
+            </GridPane>
       </children>
     </AnchorPane>
   </children>
