@@ -25,8 +25,12 @@ public class BasicFXMLController {
 	@FXML
 	private Label confidence;
 	@FXML
-	private AnchorPane emotionPane;
-	
+	private Label confidencelabel;
+	@FXML
+	private Label emotionlabel;
+	@FXML
+	private GridPane emotionPane;
+	/
 	Sentiment words;
 	String color;
 	int pr;
@@ -58,9 +62,14 @@ public class BasicFXMLController {
 		emotion.setText(words.getEmotion());
 		emotion.setTextAlignment(TextAlignment.CENTER);
 		//System.out.println("Yeet");
-		// This works
+		if(color!="gray") {
+        	emotion.setStyle("-fx-text-fill:white;");
+        	emotionlabel.setStyle("-fx-text-fill:white;");
+        	confidence.setStyle("-fx-text-fill:white;");
+        	confidencelabel.setStyle("-fx-text-fill:white;");
+        }
 		Thread thread = new Thread(new Runnable() {
-
+			
 		    @Override
 		    public void run() {
 		         try {
@@ -69,11 +78,16 @@ public class BasicFXMLController {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+		         
 		        emotionPane.setStyle("-fx-border-color:black; -fx-background-color:"+ "white"+";");
 		 		//sentiment.setText(""+words.getSentiment());
 		 		confidence.setText(""+0.0);
 		 		emotion.setText("Unknown");
 		 		inputWord.clear();
+		 		emotion.setStyle("-fx-text-fill:black;");
+	        	emotionlabel.setStyle("-fx-text-fill:black;");
+	        	confidence.setStyle("-fx-text-fill:black;");
+	        	confidencelabel.setStyle("-fx-text-fill:black;");
 		    }
 		            
 		});

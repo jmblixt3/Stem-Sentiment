@@ -20,7 +20,6 @@ h1 {
 .header-section header{
 	fx-font-size: 18.0px;
 	-fx-alignment: center;
-	-fx-text-fill: #ffffff;
 }
 .left-calc-section {
   -fx-font-size: 30.0px;
@@ -34,13 +33,12 @@ h1 {
   -fx-alignment: center;
   -fx-font-size: 36.0px;
   -fx-background-color: blue;
-  -fx-text-fill:white;
   color: white;
   cursor: pointer;
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  -fx-background-color: #45a049;
 }
 
 p.output{
