@@ -7,18 +7,21 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 
 
 public class Sentiment {
 	private double sentiment;
 	private double confidence;
+	private double pos,neg,neutral;
+	private String confidencepr;
 	private String color;
 	private String emotion;
-
-	
+	private DecimalFormat df;
 
 
 	public Sentiment(String word) {
+		df = new DecimalFormat("##.#%");
 		try {
 			PostHandle(sendPOST(word));
 		} catch (IOException e) {
@@ -44,6 +47,9 @@ public class Sentiment {
 		this.sentiment = sentiment;
 	}
 
+	public String getConfidencepr() {
+		return confidencepr;
+	}
 	public double getConfidence() {
 		return confidence;
 	}
@@ -91,24 +97,34 @@ public class Sentiment {
 
 	public void PostHandle(String eval) {
 		System.out.println(eval.split("\"label\": \"")[1]);
+		neutral= Double.parseDouble(eval.split("\"neutral\": ")[1].split(",")[0]);
+		pos = Double.parseDouble(eval.split("\"pos\": ")[1].split("}")[0]);
+		neg = Double.parseDouble(eval.split("\"neg\": ")[1].split(",")[0]);
 		switch(eval.split("\"label\": \"")[1]) {
 		case "neutral\"}":
-			confidence = Double.parseDouble(eval.split("\"neutral\": ")[1].split(",")[0]);
 			color = "gray";
 			setEmotion("Neutral");
 			break;
 		case "pos\"}":
-			confidence = Double.parseDouble(eval.split("\"pos\": ")[1].split("}")[0]);
 			color = "green";
 			setEmotion("Positive");
 			break;
 		case "neg\"}":
-			confidence = Double.parseDouble(eval.split("\"neg\": ")[1].split(",")[0]);
 			color = "red";
 			setEmotion("Negative");
 			break;
 		}
-		
+		if(neutral<0.5&&(pos>0.6||neg>0.6)) {
+			if(pos>neg) 
+				confidence = pos;
+			else
+				confidence =neg;
+		}else {
+			color = "gray";
+			setEmotion("Neutral");
+			confidence = neutral;
+		}
+		confidencepr = df.format((double)confidence);
 	}
 
 	public String getEmotion() {

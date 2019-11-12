@@ -1,0 +1,48 @@
+.root{
+	-fx-alignment: center;
+	-fx-text-fill: black;
+	-fx-background-color: white;
+}
+h1 {
+  color: black;
+  text-align: center;
+}
+
+.title-section{
+  -fx-font-size: 80.0px;
+  -fx-padding: 20.0 15.0 10.0 15.0; 
+}
+
+.header-section {
+  -fx-alignment: center;
+  -fx-padding: 10px;
+}
+.header-section header{
+	fx-font-size: 18.0px;
+	-fx-alignment: center;
+	-fx-text-fill: #ffffff;
+}
+.left-calc-section {
+  -fx-font-size: 30.0px;
+  -fx-alignment: CENTER_RIGHT;
+}
+.right-calc-section {
+  -fx-font-size: 30.0px;
+  -fx-alignment: CENTER_LEFT;
+}
+.header-section calculate {
+  -fx-alignment: center;
+  -fx-font-size: 36.0px;
+  -fx-background-color: blue;
+  -fx-text-fill:white;
+  color: white;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+p.output{
+  font-size: 50.0px;
+}
